@@ -1,0 +1,23 @@
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--footerBackground);
+	z-index: 20;
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style-type: none;
+		li {
+			margin: 0 16px;
+			a {
+				text-decoration: none;
+				color: var(--footerTextColor);
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+}

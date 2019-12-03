@@ -1,0 +1,27 @@
+.button {
+	display: block;
+	font-size: 1em;
+	padding: 12px 60px;
+	border-radius: 25px;
+	margin: 0 24px;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	border: 2px solid white;
+	background-color: transparent;
+	transition: background-color 0.2s ease, color 0.2s ease;
+	cursor: pointer;
+	outline: none;
+	&.dark {
+		color: black;
+		border: 2px solid black;
+		&:hover {
+			background-color: black;
+			color: white;
+		}
+	}
+	&:hover {
+		background-color: white;
+		color: black;
+	}
+}
