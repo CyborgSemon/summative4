@@ -121,7 +121,7 @@ $aboutImageMobileHeight: 30%;
 			}
 		}
 		// Testimonials section
-		
+
 		// Servies section
 		.servicesHeading {
 			text-align: center;
@@ -132,7 +132,10 @@ $aboutImageMobileHeight: 30%;
 			}
 		}
 		.serviceOptions {
-			height: calc(calc(100% - 89px) - 52px);
+			height: calc(calc(100% - 107px) - 52px);
+			@media (max-width: 636px) {
+				height: calc(calc(100% - 145px) - 52px);
+			}
 			display: flex;
 			justify-content: center;
 			@media (max-width: 1000px) {

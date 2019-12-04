@@ -54,25 +54,30 @@ body {
     position: absolute;
     align-self: baseline;
     z-index: 4; }
+    @media (max-width: 850px) {
+      .topNavContainer .navLogo {
+        display: none; } }
     .topNavContainer .navLogo a {
       display: block;
       transition: 0.2s;
-      padding: 7px 10px 7px 10px; }
-      .topNavContainer .navLogo a:hover img {
-        opacity: 0.8; }
+      padding: 16px 10px; }
       .topNavContainer .navLogo a img {
         pointer-events: none;
         height: 40px; }
+      .topNavContainer .navLogo a:hover img {
+        opacity: 0.8; }
   .topNavContainer ul {
-    z-index: 3;
     position: absolute;
     top: 0;
     width: 100%;
     display: flex;
+    padding: 0;
     justify-content: center;
-    list-style-type: none; }
+    flex-wrap: wrap;
+    list-style-type: none;
+    z-index: 3; }
     .topNavContainer ul li {
-      margin: 0 16px; }
+      margin: 8px 16px; }
       .topNavContainer ul li a {
         text-decoration: none;
         color: white; }
@@ -92,9 +97,11 @@ body {
   .footer ul {
     display: flex;
     justify-content: center;
-    list-style-type: none; }
+    list-style-type: none;
+    flex-wrap: wrap;
+    padding: 0; }
     .footer ul li {
-      margin: 0 16px; }
+      margin: 8px 16px; }
       .footer ul li a {
         text-decoration: none;
         color: var(--footerTextColor); }
@@ -211,9 +218,12 @@ body {
         margin: 0;
         font-size: 3em; }
     .homeContainer .homeSection .serviceOptions {
-      height: calc(calc(100% - 89px) - 52px);
+      height: calc(calc(100% - 107px) - 52px);
       display: flex;
       justify-content: center; }
+      @media (max-width: 636px) {
+        .homeContainer .homeSection .serviceOptions {
+          height: calc(calc(100% - 145px) - 52px); } }
       @media (max-width: 1000px) {
         .homeContainer .homeSection .serviceOptions {
           flex-direction: column;
@@ -297,33 +307,58 @@ body {
     z-index: 2; }
     .pageTop .pageHeading h2 {
       font-size: 3em;
-      color: var(--textColor); }
+      color: var(--textColor);
+      text-align: center; }
       .pageTop .pageHeading h2.hasImage {
         color: white; }
 
 .pageContent {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 54px; }
+  @media (max-width: 768px) {
+    .pageContent {
+      margin: 24px auto 80px; } }
   .pageContent.singlePage {
     width: 70%;
-    margin: 24px auto 0;
+    margin: 24px auto 54px;
     line-height: 1.5em; }
+    @media (max-width: 768px) {
+      .pageContent.singlePage {
+        margin: 24px auto 80px; } }
   .pageContent .items {
     padding-top: 36px;
     width: 70%;
     display: flex;
     flex-direction: column;
     margin: 0 auto; }
+    @media (max-width: 768px) {
+      .pageContent .items {
+        width: 90%; } }
     .pageContent .items .card {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 48px; }
+      @media (max-width: 1000px) {
+        .pageContent .items .card {
+          flex-direction: column; }
+          .pageContent .items .card .cardContent {
+            max-width: 90% !important;
+            order: 2 !important; }
+          .pageContent .items .card .cardImage {
+            width: 100%;
+            order: 1 !important;
+            margin: 0 !important; } }
+      @media (max-width: 768px) {
+        .pageContent .items .card {
+          width: 90%;
+          margin: 0 auto 24px; } }
       .pageContent .items .card.left .cardContent {
-        order: 2 !important; }
+        order: 2; }
       .pageContent .items .card.left .cardImage {
         margin-right: 48px; }
       .pageContent .items .card.right .cardImage {
-        order: 2 !important;
+        order: 2;
         margin-left: 48px; }
       .pageContent .items .card .cardContent {
         order: 1;
@@ -331,6 +366,9 @@ body {
         .pageContent .items .card .cardContent h3 {
           font-size: 2em;
           margin-bottom: 12px; }
+          @media (max-width: 1000px) {
+            .pageContent .items .card .cardContent h3 {
+              font-size: 1.75em; } }
         .pageContent .items .card .cardContent p {
           margin: 4px 0;
           line-height: 1.5em; }
@@ -344,5 +382,69 @@ body {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat; }
+  .pageContent .stickyItemsContainer {
+    display: flex;
+    justify-content: space-around;
+    position: relative; }
+    .pageContent .stickyItemsContainer .sideImage {
+      position: sticky;
+      margin: 48px 24px 0 0;
+      top: 48px;
+      bottom: 96px;
+      width: 400px;
+      height: calc(100vh - 144px);
+      background-color: white;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat; }
+      @media (max-width: 1200px) {
+        .pageContent .stickyItemsContainer .sideImage {
+          width: 300px; } }
+      @media (max-width: 768px) {
+        .pageContent .stickyItemsContainer .sideImage {
+          display: none; } }
+    .pageContent .stickyItemsContainer .stickyItems {
+      display: flex;
+      flex-direction: column;
+      max-width: 50%; }
+      @media (max-width: 768px) {
+        .pageContent .stickyItemsContainer .stickyItems {
+          max-width: 90%; } }
+      .pageContent .stickyItemsContainer .stickyItems .item {
+        margin: 48px 0; }
+        @media (max-width: 1200px) {
+          .pageContent .stickyItemsContainer .stickyItems .item {
+            margin: 24px 0; } }
+        @media (max-width: 768px) {
+          .pageContent .stickyItemsContainer .stickyItems .item {
+            max-width: 90%;
+            margin: 24px auto; } }
+        .pageContent .stickyItemsContainer .stickyItems .item .mobileImage {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          height: 250px;
+          width: 100%;
+          display: none; }
+          @media (max-width: 768px) {
+            .pageContent .stickyItemsContainer .stickyItems .item .mobileImage {
+              display: block; } }
+        .pageContent .stickyItemsContainer .stickyItems .item h3 {
+          font-size: 1.75em;
+          margin-bottom: 12px; }
+          @media (max-width: 768px) {
+            .pageContent .stickyItemsContainer .stickyItems .item h3 {
+              width: 90%;
+              margin: 12px auto; } }
+        .pageContent .stickyItemsContainer .stickyItems .item p {
+          margin: 4px 0;
+          line-height: 1.5em; }
+          @media (max-width: 768px) {
+            .pageContent .stickyItemsContainer .stickyItems .item p {
+              width: 90%;
+              margin: 4px auto; } }
+        .pageContent .stickyItemsContainer .stickyItems .item .button {
+          display: inline-block;
+          margin-top: 8px; }
 
 /*# sourceMappingURL=main.css.map */

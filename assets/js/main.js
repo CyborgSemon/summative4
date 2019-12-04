@@ -15,3 +15,16 @@ try {
 		$('#aboutUsSection').scrollIntoView();
 	});
 } catch(err) {}
+
+try {
+	let check = true;
+	[].forEach.call(document.querySelectorAll('.item'), (e)=> {
+		if (check) {
+			document.getElementById('sideStickyImage').style.backgroundImage = `url(${e.dataset.imageLink})`;
+			check = false;
+		}
+		e.addEventListener('mouseover', ()=> {
+			document.getElementById('sideStickyImage').style.backgroundImage = `url(${e.dataset.imageLink})`;
+		});
+	});
+} catch(err) {}

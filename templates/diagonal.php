@@ -33,7 +33,7 @@ Template Post Type: page
 				$args = array(
 					'post_type' => 'post',
 					'post_status' => 'publish',
-					// 'category_name'=>'html' // Need the meta box for this
+					'cat'=> get_post_meta(get_the_ID(), 'postCatagory', true)
 				);
 				$allServices = new WP_Query($args);
 				$indecator = 0;
@@ -64,6 +64,7 @@ Template Post Type: page
 						<div class="card <?php echo $imageSide; ?>">
 							<?php echo $image; ?>
 							<div class="cardContent">
+								<h3><?php echo get_post_meta(get_the_ID(), 'postCatagory', true); ?></h3>
 								<h3><?php the_title(); ?></h3>
 								<p><?php the_excerpt(); ?></p>
 								<a class="button dark" href="<?php the_permalink(); ?>">Learn More</a>

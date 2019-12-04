@@ -33,6 +33,7 @@
 		h2 {
 			font-size: 3em;
 			color: var(--textColor);
+			text-align: center;
 			&.hasImage {
 				color: white;
 			}
@@ -42,14 +43,24 @@
 
 .pageContent {
 	text-align: center;
+	margin-bottom: 54px;
+	@media (max-width: 768px) {
+		margin: 24px auto 80px; 
+	}
 	&.singlePage {
 		width: 70%;
-		margin: 24px auto 0;
+		margin: 24px auto 54px;
+		@media (max-width: 768px) {
+			margin: 24px auto 80px; 
+		}
 		line-height: 1.5em;
 	}
 	.items {
 		padding-top: 36px;
 		width: 70%;
+		@media (max-width: 768px) {
+			width: 90%;
+		}
 		display: flex;
 		flex-direction: column;
 		margin: 0 auto;
@@ -58,9 +69,25 @@
 			justify-content: space-between;
 			align-items: center;
 			margin-bottom: 48px;
+			@media (max-width: 1000px) {
+				flex-direction: column;
+				.cardContent {
+					max-width: 90% !important;
+					order: 2 !important;
+				}
+				.cardImage {
+					width: 100%;
+					order: 1 !important;
+					margin: 0 !important;
+				}
+			}
+			@media (max-width: 768px) {
+				width: 90%;
+				margin: 0 auto 24px;
+			}
 			&.left {
 				.cardContent {
-					order: 2 !important;
+					order: 2;
 				}
 				.cardImage {
 					margin-right: 48px;
@@ -68,7 +95,7 @@
 			}
 			&.right {
 				.cardImage {
-					order: 2 !important;
+					order: 2;
 					margin-left: 48px;
 				}
 			}
@@ -78,6 +105,9 @@
 				h3 {
 					font-size: 2em;
 					margin-bottom: 12px;
+					@media (max-width: 1000px) {
+						font-size: 1.75em;
+					}
 				}
 				p {
 					margin: 4px 0;
@@ -95,6 +125,78 @@
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;
+			}
+		}
+	}
+	.stickyItemsContainer {
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+		.sideImage {
+			position: sticky;
+			margin: 48px 24px 0 0;
+			top: 48px;
+			bottom: 96px;
+			width: 400px;
+			@media (max-width: 1200px) {
+				width: 300px;
+			}
+			@media (max-width: 768px) {
+				display: none;
+			}
+			height: calc(100vh - 144px);
+			background-color: white;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.stickyItems {
+			display: flex;
+			flex-direction: column;
+			max-width: 50%;
+			@media (max-width: 768px) {
+				max-width: 90%;
+			}
+			.item {
+				margin: 48px 0;
+				@media (max-width: 1200px) {
+					margin: 24px 0;
+				}
+				@media (max-width: 768px) {
+					max-width: 90%;
+					margin: 24px auto;
+				}
+				.mobileImage {
+					background-position: center;
+					background-size: cover;
+					background-repeat: no-repeat;
+					height: 250px;
+					width: 100%;
+					display: none;
+					@media (max-width: 768px) {
+						display: block;
+					}
+				}
+				h3 {
+					font-size: 1.75em;
+					margin-bottom: 12px;
+					@media (max-width: 768px) {
+						width: 90%;
+						margin: 12px auto;
+					}
+				}
+				p {
+					margin: 4px 0;
+					line-height: 1.5em;
+					@media (max-width: 768px) {
+						width: 90%;
+						margin: 4px auto;
+					}
+				}
+				.button {
+					display: inline-block;
+					margin-top: 8px;
+				}
 			}
 		}
 	}
