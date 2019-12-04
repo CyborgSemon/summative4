@@ -131,11 +131,23 @@ function runFooter() {
 	</div>
 <?php elseif (have_posts()): ?>
 	<?php while (have_posts()): the_post(); ?>
-		<div class="container">
-			<h2 class="blog-title"><?php the_title(); ?></h2>
-			<div class="blog-content">
-				<?php the_content(); ?>
+		<div class="pageTop">
+			<?php
+			$thumbnail = '';
+			$headingClass = '';
+			if (has_post_thumbnail()) {
+				$thumbnail = 'style="background-image: url(' . get_the_post_thumbnail_url() . ');"';
+				$headingClass = 'class="hasImage"';
+			}
+
+			?>
+			<div class="pageBackground" <?php echo $thumbnail; ?>></div>
+			<div class="pageHeading">
+				<h2 <?php echo $headingClass; ?>><?php the_title(); ?></h2>
 			</div>
+		</div>
+		<div class="pageContent singlePage">
+			<?php echo the_content(); ?>
 		</div>
 	<?php endwhile; ?>
 <?php endif; ?>

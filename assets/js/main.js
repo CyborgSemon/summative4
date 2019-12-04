@@ -10,7 +10,8 @@ function $ (ele) {
 	return document.querySelector(ele);
 }
 
-
-$('#aboutUsButton').addEventListener('click', ()=> {
-	$('#aboutUsSection').scrollIntoView();
-});
+try {
+	$('#aboutUsButton').addEventListener('click', ()=> {
+		$('#aboutUsSection').scrollIntoView();
+	});
+} catch(err) {}

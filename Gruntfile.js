@@ -14,14 +14,17 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'assets/js/main.min.js': ['assets/js/main.js']
+                    'assets/js/main.min.js': ['assets/js/main.js'],
+                    'assets/js/admin.min.js': ['assets/js/admin.js']
+
                 }
             }
         },
 		sass: {
 			dist: {
 				files: {
-					'assets/css/main.css': 'assets/scss/main.scss'
+					'assets/css/main.css': 'assets/scss/main.scss',
+					'assets/css/admin.css': 'assets/scss/admin.scss'
 				}
 			}
 		},
@@ -31,7 +34,7 @@ module.exports = function(grunt) {
 				tasks: ['sass', 'cssmin']
 			},
 			js: {
-				files: ['assets/js/main.js'],
+				files: ['assets/js/main.js', 'assets/js/admin.js'],
 				tasks: ['uglify']
 			},
 		}

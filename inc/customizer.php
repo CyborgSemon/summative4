@@ -12,6 +12,16 @@ function customizerOptions ($wp_customize) {
 		'section' => 'colors',
 		'settings' => 'backgroundColor',
 	)));
+	$wp_customize->add_setting('backgroundImageColor', array(
+		'default' => '#FFF',
+		'transport' => 'refresh'
+	));
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'backgroundImageColorController', array(
+		'label' => __('Background Image Color', 'SimonSummative1'),
+		'description' => 'Change the background color of the area behind the heading images',
+		'section' => 'colors',
+		'settings' => 'backgroundImageColor',
+	)));
 	// Text color of the entire site
 	$wp_customize->add_setting('textColor', array(
 		'default' => '#000',
@@ -238,6 +248,7 @@ function customCSS () {
 			:root {
 				--background: <?php echo get_theme_mod('backgroundColor', '#FFF'); ?>;
 				--textColor: <?php echo get_theme_mod('textColor', '#000'); ?>;
+				--backgroundImageColor: <?php echo get_theme_mod('backgroundImageColor', '#FFF'); ?>;
 				--footerBackground: <?php echo get_theme_mod('footerBackgroundColor', '#B4B4B4') ?>;
 				--footerTextColor: <?php echo get_theme_mod('footerTextColor', '#FFF') ?>;
 			}

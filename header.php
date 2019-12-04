@@ -7,21 +7,26 @@
 		<title><?php echo get_bloginfo('name'); ?></title>
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<?php if (is_front_page()): ?>
+		<body>
+	<?php else: ?>
+		<body class="page">
+	<?php endif; ?>
 		<?php if (has_nav_menu('top_navigation')): ?>
 			<?php if (!is_front_page()): ?>
 				<div class="navBar">
-					<?php
-						// IDEA: If there is a logo present in the customiser and it is turned on in the menu
-					?>
-
-					<?php
-						wp_nav_menu(array(
-							'theme_location' => 'top_navigation',
-							'container' => 'div',
-							'container_class' => 'topNavContainer'
-						));
-					?>
+					<div class="topNavContainer">
+						<?php if (get_theme_mod('customLogo')): ?>
+							<div class="navLogo">
+								<a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_theme_mod('customLogo'); ?>" alt="Our Logo"></a>
+							</div>
+						<?php endif; ?>
+						<?php
+							wp_nav_menu(array(
+								'theme_location' => 'top_navigation'
+							));
+						?>
+					</div>
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>

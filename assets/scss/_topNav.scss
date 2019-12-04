@@ -1,9 +1,40 @@
+.navBar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	z-index: 2;
+}
+
 .topNavContainer {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
+	.navLogo {
+		position: absolute;
+		align-self: baseline;
+		z-index: 4;
+		a {
+			display: block;
+			transition: 0.2s;
+			padding: 7px 10px 7px 10px;
+			&:hover img {
+				opacity: 0.8;
+			}
+			img {
+				pointer-events: none;
+				height: 40px;
+			}
+		}
+	}
 	ul {
+		z-index: 3;
+		position: absolute;
+		top: 0;
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		list-style-type: none;
@@ -12,6 +43,11 @@
 			a {
 				text-decoration: none;
 				color: white;
+				// // Remove this
+				// body.page & {
+				// 	color: black;
+				// }
+				// //
 				&:hover {
 					opacity: 0.7;
 				}

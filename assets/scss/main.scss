@@ -25,8 +25,11 @@ body {
 
 
 // Imports for the seporate components
+@import 'button';
 @import 'topNav';
 @import 'bottomNav';
+
+// Imports for pages
 @import 'homeSection';
-@import 'button';
+@import 'page';
 

@@ -12,12 +12,62 @@ body {
   background-color: var(--background);
   color: var(--textColor); }
 
+.button {
+  display: block;
+  font-size: 1em;
+  padding: 12px 60px;
+  border-radius: 25px;
+  margin: 0 24px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid white;
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  outline: none; }
+  .button.dark {
+    color: black;
+    border: 2px solid black; }
+    .button.dark:hover {
+      background-color: black;
+      color: white; }
+  .button:hover {
+    background-color: white;
+    color: black; }
+
+.navBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2; }
+
 .topNavContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%; }
+  .topNavContainer .navLogo {
+    position: absolute;
+    align-self: baseline;
+    z-index: 4; }
+    .topNavContainer .navLogo a {
+      display: block;
+      transition: 0.2s;
+      padding: 7px 10px 7px 10px; }
+      .topNavContainer .navLogo a:hover img {
+        opacity: 0.8; }
+      .topNavContainer .navLogo a img {
+        pointer-events: none;
+        height: 40px; }
   .topNavContainer ul {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     list-style-type: none; }
@@ -28,6 +78,9 @@ body {
         color: white; }
         .topNavContainer ul li a:hover {
           opacity: 0.7; }
+
+.footerBox {
+  height: 54px; }
 
 .footer {
   position: absolute;
@@ -212,28 +265,84 @@ body {
           .homeContainer .homeSection .serviceOptions .service .serviceInfo a {
             display: inline; }
 
-.button {
-  display: block;
-  font-size: 1em;
-  padding: 12px 60px;
-  border-radius: 25px;
-  margin: 0 24px;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  border: 2px solid white;
-  background-color: transparent;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  cursor: pointer;
-  outline: none; }
-  .button.dark {
-    color: black;
-    border: 2px solid black; }
-    .button.dark:hover {
-      background-color: black;
-      color: white; }
-  .button:hover {
-    background-color: white;
-    color: black; }
+.pageTop {
+  position: relative;
+  width: 100%;
+  height: 400px; }
+  .pageTop .pageBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--backgroundImageColor);
+    position: relative;
+    z-index: 1; }
+    .pageTop .pageBackground:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2); }
+  .pageTop .pageHeading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; }
+    .pageTop .pageHeading h2 {
+      font-size: 3em;
+      color: var(--textColor); }
+      .pageTop .pageHeading h2.hasImage {
+        color: white; }
+
+.pageContent {
+  text-align: center; }
+  .pageContent.singlePage {
+    width: 70%;
+    margin: 24px auto 0;
+    line-height: 1.5em; }
+  .pageContent .items {
+    padding-top: 36px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; }
+    .pageContent .items .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px; }
+      .pageContent .items .card.left .cardContent {
+        order: 2 !important; }
+      .pageContent .items .card.left .cardImage {
+        margin-right: 48px; }
+      .pageContent .items .card.right .cardImage {
+        order: 2 !important;
+        margin-left: 48px; }
+      .pageContent .items .card .cardContent {
+        order: 1;
+        max-width: 50%; }
+        .pageContent .items .card .cardContent h3 {
+          font-size: 2em;
+          margin-bottom: 12px; }
+        .pageContent .items .card .cardContent p {
+          margin: 4px 0;
+          line-height: 1.5em; }
+        .pageContent .items .card .cardContent .button {
+          display: inline-block;
+          margin-top: 8px; }
+      .pageContent .items .card .cardImage {
+        order: 1;
+        min-height: 250px;
+        min-width: 250px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat; }
 
 /*# sourceMappingURL=main.css.map */
