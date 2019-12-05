@@ -229,7 +229,8 @@ function customizerOptions ($wp_customize) {
 	$allSerices = array('' => '');
 	$args2 = array(
 		'post_type' => 'post',
-		'post_status' => 'publish'
+		'post_status' => 'publish',
+		'posts_per_page' => -1
 	);
 	$allPosts2 = get_posts($args2);
 	foreach($allPosts2 as $post) {
