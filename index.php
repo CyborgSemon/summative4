@@ -15,13 +15,13 @@ function runFooter() {
 <?php if (is_front_page()): ?>
 	<?php
 	$finalArea = '';
-	if (get_theme_mod('aboutUsRadio') == 'on') {
+	if (get_theme_mod('aboutUsRadio', 'on') == 'on') {
 		$finalArea = 'aboutUsRadio';
 	}
-	if (get_theme_mod('testimonialsRadio') == 'on') {
+	if (get_theme_mod('testimonialsRadio', 'off') == 'on') {
 		$finalArea = 'testimonialsRadio';
 	}
-	if (get_theme_mod('servicesRadio') == 'on') {
+	if (get_theme_mod('servicesRadio', 'off') == 'on') {
 		$finalArea = 'servicesRadio';
 	}
 
@@ -46,18 +46,18 @@ function runFooter() {
 					<?php if (get_theme_mod('aboutUsRadio') == 'on'): ?>
 						<button id="aboutUsButton" class="button">About Us</button>
 					<?php endif; ?>
-					<?php if (get_theme_mod('learnMoreButtonRadio') == 'on'): ?>
+					<?php if (get_theme_mod('learnMoreButtonRadio', 'on') == 'on'): ?>
 						<a class="button" href="<?php echo get_theme_mod('learnMoreRadioOptions'); ?>">Learn More</a>
 					<?php endif; ?>
 				</div>
 			</div>
 		</section>
-		<?php if (get_theme_mod('aboutUsRadio') == 'on'): ?>
+		<?php if (get_theme_mod('aboutUsRadio', 'on') == 'on'): ?>
 			<section class="homeSection" id="aboutUsSection">
 				<?php
 				$image = '';
-				if (get_theme_mod('aboutUsImage') != '') {
-					$image = 'class="aboutUsImage" style="background-image: url(' . get_theme_mod('aboutUsImage') . ')"';
+				if (get_theme_mod('aboutUsImage', get_template_directory_uri() . '/assets/images/sunset.jpg') != '') {
+					$image = 'class="aboutUsImage" style="background-image: url(' . get_theme_mod('aboutUsImage', get_template_directory_uri() . '/assets/images/sunset.jpg') . ')"';
 				} else {
 					$image = 'class="aboutUsImage noTopImage"';
 				}
@@ -68,7 +68,7 @@ function runFooter() {
 				</div>
 				<div class="aboutUsContent">
 					<h2 class="desktop">About Us</h2>
-					<p><?php echo get_theme_mod('aboutUsText'); ?></p>
+					<p><?php echo get_theme_mod('aboutUsText', 'Just another Wordpress site'); ?></p>
 				</div>
 				<?php if ($finalArea == 'aboutUsRadio'): ?>
 					<div class="footerBox">
@@ -79,7 +79,7 @@ function runFooter() {
 				<?php endif; ?>
 			</section>
 		<?php endif; ?>
-		<?php if (get_theme_mod('testimonialsRadio') == 'on'): ?>
+		<?php if (get_theme_mod('testimonialsRadio', 'off') == 'on'): ?>
 			<section class="homeSection">
 				<div class="servicesHeading">
 					<h2>Testimonials</h2>
@@ -131,7 +131,7 @@ function runFooter() {
 				<?php endif; ?>
 			</section>
 		<?php endif; ?>
-		<?php if (get_theme_mod('servicesRadio') == 'on'): ?>
+		<?php if (get_theme_mod('servicesRadio', 'off') == 'on'): ?>
 			<section class="homeSection">
 				<div class="servicesHeading">
 					<h2>Services</h2>

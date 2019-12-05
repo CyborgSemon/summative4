@@ -136,7 +136,7 @@ function customizerOptions ($wp_customize) {
 	)));
 	// Anout Us text (Text field)
 	$wp_customize->add_setting('aboutUsText', array(
-		'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc facilisis sapien vel massa finibus, ac fermentum ligula egestas. Aenean imperdiet sodales dictum. Pellentesque cursus metus eros, et fermentum mi commodo sed. Nunc malesuada dui massa, vel rhoncus dolor ultricies et. Donec eu mi ullamcorper, vestibulum est at, venenatis ante. Pellentesque condimentum consectetur enim vel accumsan. Nulla fermentum risus et lacus porttitor, in aliquam justo commodo.',
+		'default' => 'Just another Wordpress Site',
 		'transport' => 'refresh'
 	));
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'aboutUsTextController', array(
@@ -211,7 +211,7 @@ function customizerOptions ($wp_customize) {
 		'priority' => 5
 	));
 	$wp_customize->add_setting('servicesRadio', array(
-		'default' => 'on',
+		'default' => 'off',
 		'transport' => 'refresh'
 	));
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'servicesRadioController', array(
