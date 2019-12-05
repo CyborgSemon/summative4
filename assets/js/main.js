@@ -64,11 +64,12 @@ try {
 
 	[].forEach.call(dots, (e)=> {
 		e.addEventListener('click', ()=> {
-			runSlide(slideIndex -= parseInt(e.dataset.slideNum));
+			runSlide(parseInt(e.dataset.slideNum) - 1);
 		});
 	});
 
 	function runSlide (slideNum) {
+		console.log(slideNum);
 		if (slideNum > testimonials.length) slideIndex = 1;
 		if (slideNum < 1) slideIndex = testimonials.length;
 		for (let i = 0; i < testimonials.length; i++) {
@@ -77,10 +78,10 @@ try {
 		for (let i = 0; i < dots.length; i++) {
 			dots[i].className = dots[i].className.replace('active', '');
 		}
-		testimonials[slideIndex-1].style.display = 'flex';
-		dots[slideIndex-1].classList.add('active');
+		testimonials[slideNum].style.display = 'flex';
+		dots[slideNum].classList.add('active');
 	}
-	runSlide(1);
+	runSlide(0);
 } catch(err) {}
 
 loadScrollTopBtn();
