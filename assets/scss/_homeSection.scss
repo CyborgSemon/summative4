@@ -49,6 +49,12 @@ $aboutImageMobileHeight: 30%;
 			.mainLogo {
 				img {
 					width: 450px;
+					@media (max-width: 750px) {
+						width: 350px;
+					}
+					@media (max-width: 480px) {
+						width: 300px;
+					}
 				}
 			}
 			.buttons {
@@ -76,6 +82,12 @@ $aboutImageMobileHeight: 30%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			&.noTopImage {
+				~ .aboutUsContent {
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
 			.mobile {
 				display: none;
 				color: white;
@@ -86,6 +98,14 @@ $aboutImageMobileHeight: 30%;
 				position: relative;
 				width: 100%;
 				height: $aboutImageMobileHeight;
+				&.noTopImage {
+					.mobile {
+						color: black !important;
+					}
+					~ .aboutUsContent {
+						transform: translateX(-50%);
+					}
+				}
 				.mobile {
 					display: block;
 				}
@@ -121,7 +141,73 @@ $aboutImageMobileHeight: 30%;
 			}
 		}
 		// Testimonials section
-
+		.testimonialBox {
+			height: calc(100% - 89px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			#testimonials {
+				width: 90%;
+				height: calc(100% - 89px);
+				position: relative;
+				.testimonial {
+					position: absolute;
+					top: 45%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					flex-direction: column;
+					text-align: center;
+					align-items: center;
+					width: 80%;
+					display: none;
+					.testimonialImage {
+						width: 125px;
+						height: 125px;
+						background-position: center;
+						background-size: cover;
+						background-repeat: no-repeat;
+						border-radius: 50%;
+						margin-bottom: 18px;
+					}
+					.testimonialText {
+						line-height: 2em;
+						font-size: 1.25em;
+					}
+					.testimonialPerson {
+						color: var(--textColor);
+						opacity: 0.8;
+						font-style: italic;
+					}
+				}
+				.dotsContainer {
+					text-align: center;
+					padding: 20px;
+					position: absolute;
+					bottom: 20px;
+					@media (max-width: 635px) {
+						bottom: 50px;
+					}
+					left: 50%;
+					transform: translateX(-50%);
+					.dot {
+						cursor: pointer;
+						height: 10px;
+						width: 10px;
+						margin: 0 4px;
+						background-color: #bbb;
+						border-radius: 50%;
+						display: inline-block;
+						transition: 0.6s;
+						&.active, .dot:hover {
+							background-color: #717171;
+						}
+						&:only-child {
+							display: none;
+						}
+					}
+				}
+			}
+		}
 		// Servies section
 		.servicesHeading {
 			text-align: center;
@@ -157,6 +243,7 @@ $aboutImageMobileHeight: 30%;
 					background-position: center;
 					background-size: cover;
 					background-repeat: no-repeat;
+					background-color: var(--backgroundImageColor);
 					transition: 0.3s;
 					&:after {
 						content: "";

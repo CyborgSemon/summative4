@@ -13,7 +13,13 @@ require_once $dir . '/inc/adminStyles.php';
 
 require_once $dir . '/inc/customizer.php';
 
+
+require get_parent_theme_file_path('./inc/alert.php');
+
+
 add_theme_support('wp-block-styles');
 add_theme_support('post-thumbnails');
+
+
 
 ?>

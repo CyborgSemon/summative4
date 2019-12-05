@@ -10,13 +10,20 @@ function categories_add_custom_box () {
 		'default',
 		null
     );
+	add_meta_box(
+		'testimonialPerson',
+		'Testimonial Person Meta Box',
+		'testimonial_person_custom_box_html',
+		'testimonial',
+		'normal',
+		'default',
+		null
+    );
 }
 
 add_action('add_meta_boxes', 'categories_add_custom_box');
 
 function categories_custom_box_html ($post) {
-	get_post_meta(get_the_ID(), 'postCatagory', true);
-
 	$categories = get_categories(array(
 		'taxonomy' => 'category'
 	));
@@ -36,15 +43,19 @@ function categories_custom_box_html ($post) {
     <?php
 }
 
-
-
+function testimonial_person_custom_box_html ($post) {
+	?>
+	<label for="testimonialPersonInput">The service type that you would like displayed on this page</label>
+	<input id="testimonialPersonInput" type="text" name="testimonialPerson" value="<?php echo get_post_meta(get_the_ID(), 'testimonialPerson', true) ?>">
+	<?php
+}
 
 function custom_save_meta_boxes ($post_id) {
 	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
 		return;
 	}
 
-	$fields = ['postCatagory'];
+	$fields = ['postCatagory', 'testimonialPerson'];
 
 	foreach ($fields as $field) {
 		if (array_key_exists($field, $_POST)) {

@@ -14,7 +14,7 @@
 	<?php endif; ?>
 		<?php if (has_nav_menu('top_navigation')): ?>
 			<?php if (!is_front_page()): ?>
-				<div class="navBar">
+				<div class="navBar" id="topNav">
 					<div class="topNavContainer">
 						<?php if (get_theme_mod('customLogo')): ?>
 							<div class="navLogo">

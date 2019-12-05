@@ -59,8 +59,8 @@ function customizerOptions ($wp_customize) {
 
 	// Logo to sit on home page and on the nav bar on other pages (Image field)
 	$wp_customize->add_section('customLogoSection', array(
-		'title' => __('Custom Brand', 'SimonSummative1'),
-		'priority' => 51
+		'title' => __('Custom Logo', 'SimonSummative1'),
+		'priority' => 1
 	));
 	$wp_customize->add_setting('customLogo', array(
 		'default' => get_template_directory_uri() . '/assets/images/defaultWhite.png',
@@ -75,6 +75,10 @@ function customizerOptions ($wp_customize) {
 
 
 	// Learn more button toggle
+	$wp_customize->add_section('learnMoreSection', array(
+		'title' => __('Learn More Button', 'SimonSummative1'),
+		'priority' => 2
+	));
 	$wp_customize->add_setting('learnMoreButtonRadio', array(
 		'default' => 'on',
 		'transport' => 'refresh'
@@ -82,7 +86,7 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'learnMoreButtonRadioController', array(
 		'label' => __('Learn More Button Toggle', 'SimonSummative1'),
 		'description' => 'Toggle the Learn More button on the home page',
-		'section' => 'homePageSection',
+		'section' => 'learnMoreSection',
 		'settings' => 'learnMoreButtonRadio',
 		'type' => 'radio',
 		'choices' => array(
@@ -90,7 +94,7 @@ function customizerOptions ($wp_customize) {
 			'off' => 'Off'
 		)
 	)));
-	// Learn more button page
+	// Learn more button page select
 	$allPages = array('' => '');
 	$pages = get_pages();
 	foreach($pages as $page) {
@@ -103,7 +107,7 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'learnMoreRadioOptions', array(
 		'label' => __('Learn More Button Page Link', 'SimonSummative1'),
 		'description' => 'Select the page the Learn More button links to',
-		'section' => 'homePageSection',
+		'section' => 'learnMoreSection',
 		'settings' => 'learnMoreRadioOptions',
 		'type' => 'select',
 		'choices' => $allPages
@@ -111,9 +115,9 @@ function customizerOptions ($wp_customize) {
 
 
 	// About Us slab toggle on and off (Radio toggle)
-	$wp_customize->add_section('homePageSection', array(
-		'title' => __('Home Page Options', 'SimonSummative1'),
-		'priority' => 52
+	$wp_customize->add_section('aboutUsSection', array(
+		'title' => __('About Us Section', 'SimonSummative1'),
+		'priority' => 3
 	));
 	$wp_customize->add_setting('aboutUsRadio', array(
 		'default' => 'on',
@@ -122,7 +126,7 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'aboutUsRadioController', array(
 		'label' => __('About Us Section Toggle', 'SimonSummative1'),
 		'description' => 'Toggle the About Us section on the home page',
-		'section' => 'homePageSection',
+		'section' => 'aboutUsSection',
 		'settings' => 'aboutUsRadio',
 		'type' => 'radio',
 		'choices' => array(
@@ -138,7 +142,7 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'aboutUsTextController', array(
 		'label' => __('About Us Text', 'SimonSummative1'),
 		'description' => 'The text that apperas in the About Us section',
-		'section' => 'homePageSection',
+		'section' => 'aboutUsSection',
 		'settings' => 'aboutUsText',
 		'type' => 'textarea'
 	)));
@@ -150,12 +154,16 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'aboutUsImageController', array(
 		'label' => __('About Us Side Image', 'SimonSummative1'),
 		'description' => 'Change the side image of the About us section',
-		'section' => 'homePageSection',
+		'section' => 'aboutUsSection',
 		'settings' => 'aboutUsImage',
 	)));
 
 
 	// Testimonials slab (Radio toggle)
+	$wp_customize->add_section('testimonialsSection', array(
+		'title' => __('Testimonials Section', 'SimonSummative1'),
+		'priority' => 4
+	));
 	$wp_customize->add_setting('testimonialsRadio', array(
 		'default' => 'off',
 		'transport' => 'refresh'
@@ -163,7 +171,7 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'testimonialsRadioController', array(
 		'label' => __('Testimonials Section Toggle', 'SimonSummative1'),
 		'description' => 'Toggle the Testimonials section on the home page',
-		'section' => 'homePageSection',
+		'section' => 'testimonialsSection',
 		'settings' => 'testimonialsRadio',
 		'type' => 'radio',
 		'choices' => array(
@@ -171,7 +179,7 @@ function customizerOptions ($wp_customize) {
 			'off' => 'Off'
 		)
 	)));
-	// Display Testimonials custom post type (Choose or just random) (Selects)
+	// Display Testimonials custom post typex
 	$allTestimonials = array('' => '');
 	$args = array(
 		'post_type' => 'testimonial',
@@ -189,15 +197,19 @@ function customizerOptions ($wp_customize) {
 		$wp_customize->add_control(new WP_Customize_Control($wp_customize, "featuredTestimonial{$i}Controller", array(
 			'label' => __("Testimonial {$i}", 'SimonSummative1'),
 			'description' => "Select Testimonial number {$i}",
-			'section' => 'homePageSection',
+			'section' => 'testimonialsSection',
 			'settings' => "featuredTestimonial{$i}",
 			'type' => 'select',
-			'choices' => $allPostsList
+			'choices' => $allTestimonials
 		)));
 	}
 
 
-	// Products / Services slab (Radio toggle)
+	// Services slab (Radio toggle)
+	$wp_customize->add_section('servicesSection', array(
+		'title' => __('Services Section', 'SimonSummative1'),
+		'priority' => 5
+	));
 	$wp_customize->add_setting('servicesRadio', array(
 		'default' => 'on',
 		'transport' => 'refresh'
@@ -205,7 +217,7 @@ function customizerOptions ($wp_customize) {
 	$wp_customize->add_control(new WP_Customize_Control($wp_customize, 'servicesRadioController', array(
 		'label' => __('Services Section Toggle', 'SimonSummative1'),
 		'description' => 'Toggle the Services section on the home page',
-		'section' => 'homePageSection',
+		'section' => 'servicesSection',
 		'settings' => 'servicesRadio',
 		'type' => 'radio',
 		'choices' => array(
@@ -231,7 +243,7 @@ function customizerOptions ($wp_customize) {
 		$wp_customize->add_control(new WP_Customize_Control($wp_customize, "featuredService{$i}Controller", array(
 			'label' => __("Service {$i}", 'SimonSummative1'),
 			'description' => "Select Service number {$i}",
-			'section' => 'homePageSection',
+			'section' => 'servicesSection',
 			'settings' => "featuredService{$i}",
 			'type' => 'select',
 			'choices' => $allSerices

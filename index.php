@@ -26,10 +26,10 @@ function runFooter() {
 	}
 
 	?>
-	<div class="homeContainer">
-		<section class="homeSection" id="landingSection">
+	<div class="homeContainer" id="homeContainer">
+		<section class="homeSection">
 			<div class="homeBackground" style="background-image: url(<?php echo get_header_image(); ?>);"></div>
-			<div class="navBar">
+			<div class="navBar" id="topNav">
 				<?php
 					wp_nav_menu(array(
 						'theme_location' => 'top_navigation',
@@ -54,7 +54,16 @@ function runFooter() {
 		</section>
 		<?php if (get_theme_mod('aboutUsRadio') == 'on'): ?>
 			<section class="homeSection" id="aboutUsSection">
-				<div class="aboutUsImage" style="background-image: url(<?php echo get_theme_mod('aboutUsImage') ?>)">
+				<?php
+				$image = '';
+				if (get_theme_mod('aboutUsImage') != '') {
+					$image = 'class="aboutUsImage" style="background-image: url(' . get_theme_mod('aboutUsImage') . ')"';
+				} else {
+					$image = 'class="aboutUsImage noTopImage"';
+				}
+
+				?>
+				<div <?php echo $image; ?>>
 					<h2 class="mobile">About Us</h2>
 				</div>
 				<div class="aboutUsContent">
@@ -72,7 +81,47 @@ function runFooter() {
 		<?php endif; ?>
 		<?php if (get_theme_mod('testimonialsRadio') == 'on'): ?>
 			<section class="homeSection">
-				This is the testimonials page
+				<div class="servicesHeading">
+					<h2>Testimonials</h2>
+				</div>
+				<?php
+
+				$testimonialString = '';
+				$buttonString = '';
+				$counter = 1;
+				for ($i=1; $i < 7; $i++) {
+					if (get_theme_mod("featuredTestimonial{$i}") != '') {
+						$post = get_post(get_theme_mod("featuredTestimonial{$i}"));
+						$image = '';
+						if (has_post_thumbnail($post)) {
+							$image = '<div class="testimonialImage" style="background-image: url(' . get_the_post_thumbnail_url($post) . ')"></div>';
+						}
+						$person = '';
+						if (get_post_meta(get_the_ID(), 'testimonialPerson', true) != '') {
+							$person = '<div class="testimonialPerson">- ' . get_post_meta(get_the_ID(), 'testimonialPerson', true) . '</div>';
+						}
+						$testimonialString .= '<div class="testimonial">' . $image . '<p class="testimonialText">' . get_the_excerpt($post) . '</p>' . $person . '</div>';
+						$buttonString .= '<span class="dot" data-slide-num="' . $counter . '"></span>';
+						$counter++;
+					}
+				}
+
+				?>
+
+				<div class="testimonialBox">
+					<?php if ($testimonialString != ''): ?>
+						<div id="testimonials">
+							<?php echo $testimonialString; ?>
+							<div class="dotsContainer">
+								<?php echo $buttonString; ?>
+							</div>
+						</div>
+					<?php else: ?>
+						<div class="testimonialError">
+							<h3>There are no active testimonials</h3>
+						</div>
+					<?php endif; ?>
+				</div>
 				<?php if ($finalArea == 'testimonialsRadio'): ?>
 					<div class="footerBox">
 						<?php
@@ -91,7 +140,14 @@ function runFooter() {
 					<?php if (get_theme_mod('featuredService1') != ''): ?>
 						<?php $post1 = get_post(get_theme_mod('featuredService1')); ?>
 						<div class="service">
-							<div class="serviceImage"style="background-image: url(<?php echo get_the_post_thumbnail_url($post1); ?>)"></div>
+							<?php
+							$image = '';
+							if (has_post_thumbnail($post1)) {
+								$image = 'style="background-image: url(' . get_the_post_thumbnail_url($post1) . ');"';
+							}
+
+							?>
+							<div class="serviceImage" <?php echo $image; ?>></div>
 							<div class="serviceInfo">
 								<h3><?php echo $post1->post_title; ?></h3>
 								<a class="button" href="<?php echo $post1->guid; ?>">Learn More</a>
