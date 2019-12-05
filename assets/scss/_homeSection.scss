@@ -7,7 +7,7 @@ $aboutImageMobileHeight: 30%;
 	-ms-scroll-snap-type: y mandatory;
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
-	overflow: scroll;
+	overflow-y: scroll;
 	.homeSection {
 		position: relative;
 		width: 100%;
