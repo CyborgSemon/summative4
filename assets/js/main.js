@@ -69,7 +69,6 @@ try {
 	});
 
 	function runSlide (slideNum) {
-		console.log(slideNum);
 		if (slideNum > testimonials.length) slideIndex = 1;
 		if (slideNum < 1) slideIndex = testimonials.length;
 		for (let i = 0; i < testimonials.length; i++) {
