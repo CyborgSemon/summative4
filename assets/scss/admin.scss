@@ -1,3 +1,10 @@
-#categoriesId {
+#categoriesId, #wp-content-editor-tools, #wp-content-editor-container, #wp-content-wrap, #post-status-info{
 	display: none;
+}
+#maxError {
+	display: none;
+	color: red;
+}
+#testimonialPersonTextInput {
+	width: 100%;
 }

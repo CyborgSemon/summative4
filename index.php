@@ -100,7 +100,7 @@ function runFooter() {
 						if (get_post_meta(get_the_ID(), 'testimonialPerson', true) != '') {
 							$person = '<div class="testimonialPerson">- ' . get_post_meta(get_the_ID(), 'testimonialPerson', true) . '</div>';
 						}
-						$testimonialString .= '<div class="testimonial">' . $image . '<p class="testimonialText">' . get_the_excerpt($post) . '</p>' . $person . '</div>';
+						$testimonialString .= '<div class="testimonial">' . $image . '<p class="testimonialText">' . get_post_meta(get_the_ID(), 'testimonialPersonText', true) . '</p>' . $person . '</div>';
 						$buttonString .= '<span class="dot" data-slide-num="' . $counter . '"></span>';
 						$counter++;
 					}

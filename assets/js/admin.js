@@ -24,4 +24,17 @@ window.onload = ()=> {
                 }
             });
     } catch(err) {}
+
+    try {
+        let textInput = document.getElementById('testimonialPersonTextInput');
+        textInput.addEventListener('input', ()=> {
+            if (textInput.value.split(' ').length > 10) {
+                document.getElementById('publish').disabled = true;
+                document.getElementById('maxError').style.display = 'inline';
+            } else {
+                document.getElementById('publish').disabled = false;
+                document.getElementById('maxError').style.display = 'none';
+            }
+        });
+    } catch(err) {}
 }

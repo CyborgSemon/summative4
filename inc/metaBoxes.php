@@ -45,8 +45,12 @@ function categories_custom_box_html ($post) {
 
 function testimonial_person_custom_box_html ($post) {
 	?>
-	<label for="testimonialPersonInput">The service type that you would like displayed on this page</label>
-	<input id="testimonialPersonInput" type="text" name="testimonialPerson" value="<?php echo get_post_meta(get_the_ID(), 'testimonialPerson', true) ?>">
+	<label for="testimonialPersonInput">The testimonials Name</label>
+	<input id="testimonialPersonInput" type="text" name="testimonialPerson" value="<?php echo get_post_meta(get_the_ID(), 'testimonialPerson', true); ?>">
+	<br>
+	<br>
+	<label for="testimonialPersonTextInput">The testimonial that the person said (Max 200 words)</label>
+	<input id="testimonialPersonTextInput" type="text" name="testimonialPersonText" value="<?php echo get_post_meta(get_the_ID(), 'testimonialPersonText', true); ?>"> <span id="maxError">You have gone over the max amount of words</span>
 	<?php
 }
 
@@ -55,7 +59,7 @@ function custom_save_meta_boxes ($post_id) {
 		return;
 	}
 
-	$fields = ['postCatagory', 'testimonialPerson'];
+	$fields = ['postCatagory', 'testimonialPerson', 'testimonialPersonText'];
 
 	foreach ($fields as $field) {
 		if (array_key_exists($field, $_POST)) {

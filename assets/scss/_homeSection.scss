@@ -138,6 +138,12 @@ $aboutImageMobileHeight: 30%;
 				margin: 0 auto;
 				font-size: 1.2em;
 				line-height: 2em;
+				max-height: calc(var(--vh, 1vh) * 70);
+				overflow-y: auto;
+				padding: 24px 0;
+				@media (max-width: 870px) {
+					max-height: calc(var(--vh, 1vh) * 60);
+				}
 			}
 		}
 		// Testimonials section

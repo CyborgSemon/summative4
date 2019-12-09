@@ -11,7 +11,7 @@ function customPostTypes() {
 		'public' => true,
 		'hierarchical' => true,
 		'show_in_nav_menus' => false,
-		'show_in_rest' => true,
+		'show_in_rest' => false,
 		'menu_position' => 6,
 		'menu_icon' => 'dashicons-format-quote',
 		'supports' => array(

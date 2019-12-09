@@ -45,28 +45,28 @@ body {
   justify-content: center;
   z-index: 2; }
 
-.topNavContainer {
+.topNavContainer, .menu {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%; }
-  .topNavContainer .navLogo {
+  .topNavContainer .navLogo, .menu .navLogo {
     position: absolute;
     align-self: baseline;
     z-index: 4; }
     @media (max-width: 850px) {
-      .topNavContainer .navLogo {
+      .topNavContainer .navLogo, .menu .navLogo {
         display: none; } }
-    .topNavContainer .navLogo a {
+    .topNavContainer .navLogo a, .menu .navLogo a {
       display: block;
       transition: 0.2s;
       padding: 16px 10px; }
-      .topNavContainer .navLogo a img {
+      .topNavContainer .navLogo a img, .menu .navLogo a img {
         pointer-events: none;
         height: 40px; }
-      .topNavContainer .navLogo a:hover img {
+      .topNavContainer .navLogo a:hover img, .menu .navLogo a:hover img {
         opacity: 0.8; }
-  .topNavContainer ul {
+  .topNavContainer ul, .menu ul {
     position: absolute;
     top: 0;
     width: 100%;
@@ -76,12 +76,12 @@ body {
     flex-wrap: wrap;
     list-style-type: none;
     z-index: 3; }
-    .topNavContainer ul li {
+    .topNavContainer ul li, .menu ul li {
       margin: 8px 16px; }
-      .topNavContainer ul li a {
+      .topNavContainer ul li a, .menu ul li a {
         text-decoration: none;
         color: white; }
-        .topNavContainer ul li a:hover {
+        .topNavContainer ul li a:hover, .menu ul li a:hover {
           opacity: 0.7; }
 
 .footerBox {
@@ -240,7 +240,13 @@ body {
         width: 80%;
         margin: 0 auto;
         font-size: 1.2em;
-        line-height: 2em; }
+        line-height: 2em;
+        max-height: calc(var(--vh, 1vh) * 70);
+        overflow-y: auto;
+        padding: 24px 0; }
+        @media (max-width: 870px) {
+          .homeContainer .homeSection .aboutUsContent p {
+            max-height: calc(var(--vh, 1vh) * 60); } }
     .homeContainer .homeSection .testimonialBox {
       height: calc(100% - 89px);
       display: flex;
