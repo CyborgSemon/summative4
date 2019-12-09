@@ -43,10 +43,10 @@ function runFooter() {
 					<img src="<?php echo get_theme_mod('customLogo', get_template_directory_uri() . '/assets/images/defaultWhite.png'); ?>">
 				</div>
 				<div class="buttons">
-					<?php if (get_theme_mod('aboutUsRadio') == 'on'): ?>
+					<?php if (get_theme_mod('aboutUsRadio', 'on') == 'on'): ?>
 						<button id="aboutUsButton" class="button">About Us</button>
 					<?php endif; ?>
-					<?php if (get_theme_mod('learnMoreButtonRadio', 'on') == 'on'): ?>
+					<?php if (get_theme_mod('learnMoreButtonRadio', 'on') == 'on' && get_theme_mod('learnMoreRadioOptions', '') != ''): ?>
 						<a class="button" href="<?php echo get_theme_mod('learnMoreRadioOptions'); ?>">Learn More</a>
 					<?php endif; ?>
 				</div>

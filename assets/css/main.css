@@ -459,7 +459,11 @@ html, body.page {
         margin-left: 48px; }
       .pageContent .items .card .cardContent {
         order: 1;
-        max-width: 50%; }
+        max-width: 70%;
+        margin: 0 auto; }
+        .pageContent .items .card .cardContent ~ .cardImage {
+          max-width: 50%;
+          margin: 0; }
         .pageContent .items .card .cardContent h3 {
           font-size: 2em;
           margin-bottom: 12px; }

@@ -89,6 +89,7 @@ html, body.page {
 				width: 90%;
 				margin: 0 auto 24px;
 			}
+
 			&.left {
 				.cardContent {
 					order: 2;
@@ -105,7 +106,12 @@ html, body.page {
 			}
 			.cardContent {
 				order: 1;
-				max-width: 50%;
+				max-width: 70%;
+				margin: 0 auto;
+				~ .cardImage {
+					max-width: 50%;
+					margin: 0;
+				}
 				h3 {
 					font-size: 2em;
 					margin-bottom: 12px;
