@@ -28,7 +28,7 @@ window.onload = ()=> {
     try {
         let textInput = document.getElementById('testimonialPersonTextInput');
         textInput.addEventListener('input', ()=> {
-            if (textInput.value.split(' ').length > 10) {
+            if (textInput.value.split(' ').length > 200) {
                 document.getElementById('publish').disabled = true;
                 document.getElementById('maxError').style.display = 'inline';
             } else {
